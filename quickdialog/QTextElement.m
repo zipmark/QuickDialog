@@ -40,7 +40,9 @@
     cell.textLabel.font = _font;
     cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
     cell.textLabel.numberOfLines = 0;
-    cell.textLabel.textColor = _color;
+    if([cell.textLabel respondsToSelector:@selector(textLabel:)]) {
+        cell.textLabel.textColor = _color;
+    }
     cell.textLabel.text = _text;
 
     return cell;
